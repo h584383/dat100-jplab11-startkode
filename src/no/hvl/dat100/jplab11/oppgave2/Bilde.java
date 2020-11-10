@@ -4,35 +4,41 @@ import no.hvl.dat100.jplab11.common.TODO;
 
 public class Bilde extends Tekst {
 
-	// TODO - objekt variable
+	private String url;
 	
 	public Bilde(int id, String bruker, String dato, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id, bruker, dato, tekst);
+		this.url = url;
 	}
 
 	public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id, bruker, dato, likes, tekst);
+		this.url = url;
 	}
 	
 	public String getUrl() {
-		throw new UnsupportedOperationException(TODO.method());
+		return url;
 
 	}
 
 	public void setUrl(String url) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.url = url;
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method ());
+		String str = "BILDE" + "\n" + getId() + "\n" + getBruker() + "\n" + getDato() + "\n" + getLikes() + "\n" + getTekst() + "\n" + url + "\n";
+		return str;
 
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+		String str = "\t\t<hr>\n\t\t<h2>"+getBruker()+"@"+getDato()+" [" + getLikes() +"]<h2>"
+				+"\n\t\t<p>"+getTekst()+"<p>\n\t\t<iframe src=" + getUrl() + " height=600 width=800></iframe><hr>\n";
+		
+		return str;
 				
 	}
 }

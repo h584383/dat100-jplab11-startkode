@@ -16,9 +16,27 @@ public class HtmlBlogg extends Blogg {
 	private static String HTMLPOSTFIX = 
 			"\t</body>\n</html>";
 	
+	Innlegg[] samling = super.getSamling();
+	int nesteledig = super.getAntall();
+	
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		
+		String str = "";
+		String lokke = "";
+		int nesteledig = super.getAntall();
+		
+		//NESTELEDIG FUNKER IKKE ??? MEN SAMLING FUNKER???
+		for (int i = 0; i < nesteledig; i++) {
+			
+			
+			lokke += samling[i].toHTML();
+			
+		}
+		
+		str = HTMLPREFIX + lokke + HTMLPOSTFIX;
+		
+		return str;
 		
 	}
 }
